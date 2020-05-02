@@ -30,6 +30,8 @@ router.get('/', async (req, res) => {
        const dataTop10 = {
             pais: element.country_name,
             pruebas: parseFloat(element.tests_per_1m_population) / parseFloat(element.total_cases_per_1m_population),
+            test: element.tests_per_1m_population,
+            total: element.total_cases_per_1m_population
        }
 
        division.push(dataTop10)
@@ -40,7 +42,7 @@ router.get('/', async (req, res) => {
     }).slice(0,10)
 
     console.log(top10)
-    res.render('layouts/list', {});
+    res.render('layouts/list',{top10});
 });
 
 module.exports = router;
