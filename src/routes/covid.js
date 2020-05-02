@@ -20,6 +20,26 @@ const fectch = () => {
 }
 
 router.get('/', async (req, res) => {
+    const data = await JSON.parse( await fectch() )
+    
+    const quitarNull = data.countries_stat.filter(j => j.tests_per_1m_population !== '0' && j.total_cases_per_1m_population !== '0')
+
+    const division = []
+
+    quitarNull.forEach(element => {
+       const dataTop10 = {
+            pais: element.country_name,
+            pruebas: parseFloat(element.tests_per_1m_population) / parseFloat(element.total_cases_per_1m_population),
+       }
+
+       division.push(dataTop10)
+    });
+
+    const top10 = await division.sort((a,b)=> {
+        return b.pruebas-a.pruebas
+    }).slice(0,10)
+
+    console.log(top10)
     res.render('layouts/list', {});
 });
 
