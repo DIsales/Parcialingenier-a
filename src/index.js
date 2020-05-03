@@ -25,7 +25,8 @@ app.use(express.json());
 
 //Routes
 app.use(require('./routes/covid'));
-
+app.use(express.static(path.join(__dirname, 'public')))
+app.use("/public", express.static(__dirname + "/public"));
 //Starting the server
 app.listen(app.get('port'), ()=>{
     console.log('Listen and serve on port: ', app.get('port'));
