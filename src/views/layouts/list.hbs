@@ -9,9 +9,32 @@
 
 <body>
 
-    <div class="container p-4">
-        <div class="row">
-            <h1>Parcial 2, proyecto Covid-19</h1>
+    <div>
+        <div>
+            <h1>Cantidad de pruebas para detectar 1 caso</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>País</th>
+                        <th>Pruebas</th>
+                        <th>Test</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each top10}}
+                    <tr>
+
+                        <td>{{pais}}</td>
+                        <td>{{pruebas}}</td>
+                        <td>{{test}}</td>
+                        <td>{{total}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
         </div>
     </div>
 
