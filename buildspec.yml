@@ -5,7 +5,7 @@ phases:
             echo Logging in to Amazon ECR...
             aws --version
             $(aws ecr get login --region $AWS_DEFAULT_REGION --no-include-email)
-            REPOSITORY_URI=556410847211.dkr.ecr.us-east-2.amazonaws.com/github-nodeapp-ecr-demo
+            REPOSITORY_URI=638242831553.dkr.ecr.us-east-1.amazonaws.com/parcial2
             COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
             IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
     build:
