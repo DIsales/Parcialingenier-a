@@ -56,7 +56,7 @@ const  filterAndTop10 = async ( condicion )=> {
 
     const top10 = await division.sort((a,b)=> {
         return b.pruebas-a.pruebas
-    }).slice(0,10)
+    }).slice(0,100)
 
     return top10
 }
